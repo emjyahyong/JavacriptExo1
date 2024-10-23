@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Javascript Exo 1</title>
+</head>
+<body>
+    <input type="text" id="newText" name="name" />
+    <button id="Text" onclick="modifyText()">Modifier</button>
+
+    <script>
+        function modifyText() {
+            document.getElementById('Text').innerHTML =  document.getElementById('newText').value;
+        }
+    </script>
+</body>
+</html>
