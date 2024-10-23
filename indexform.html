@@ -1,115 +1,108 @@
 <!doctype html>
 <html lang="en">
-    <head>
-        <title>Title</title>
-        <!-- Required meta tags -->
-        <meta charset="utf-8" />
-        <meta
-            name="viewport"
-            content="width=device-width, initial-scale=1, shrink-to-fit=no"
-        />
+<head>
+    <title>Création de compte</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 
-        <!-- Bootstrap CSS v5.2.1 -->
-        <link
-            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
-            rel="stylesheet"
-            integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
-            crossorigin="anonymous"
-        />
-    </head>
+    <!-- Bootstrap CSS v5.3.2 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
+    <style>
+        body {
+            background-color: #f8f9fa; /* Couleur de fond légère */
+        }
+        .container {
+            margin-top: 50px;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            margin-bottom: 20px;
+            color: #343a40; /* Couleur du texte */
+        }
+        .btn-primary {
+            background-color: #007bff; /* Couleur personnalisée pour le bouton */
+            border: none;
+        }
+        .btn-primary:hover {
+            background-color: #0056b3; /* Couleur au survol */
+        }
+    </style>
+</head>
 
-    <body>
-        <header>
-            <!-- place navbar here -->
-        </header>
-        
-        <div class="container">
-            <div class="container mt-5">
-                <div class="row">
-                    <div class="col">
-                        <img src="img.png" style="
-                        margin-top: 25%;
-                        margin-left: 0%;
-                        width: 70%;
-                    "/>
-                    </div>
-                    <div class="col">
-                        <h2 class="text-center">Création de compte</h2>
-                <form onsubmit="verifyAccount(event)" action=".php" method=POST >
+<body>
+    <header>
+        <!-- place navbar here -->
+    </header>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 text-center">
+                <img src="img.png" class="img-fluid" style="margin-top: 25%; width: 70%;" />
+            </div>
+            <div class="col-md-6">
+                <h2 class="text-center">Création de compte</h2>
+                <form onsubmit="verifyAccount(event)" action=".php" method="POST">
                     <div class="mb-3">
                         <label for="nom" class="form-label">Nom</label>
-                        <input type="text" class="form-control" id="nom">
+                        <input type="text" class="form-control" id="nom" required>
                     </div>
                     <div class="mb-3">
                         <label for="prenom" class="form-label">Prénom</label>
-                        <input type="text" class="form-control" id="prenom">
+                        <input type="text" class="form-control" id="prenom" required>
                     </div>
                     <div class="mb-3">
                         <label for="email" class="form-label">Adresse e-mail</label>
-                        <input type="email" class="form-control" id="email">
+                        <input type="email" class="form-control" id="email" required>
                     </div>
                     <div class="mb-3">
                         <label for="pseudo" class="form-label">Pseudo</label>
-                        <input type="text" class="form-control" id="pseudo">
+                        <input type="text" class="form-control" id="pseudo" required>
                     </div>
                     <div class="mb-3">
                         <label for="password" class="form-label">Mot de passe</label>
-                        <input type="password" class="form-control" id="password">
+                        <input type="password" class="form-control" id="password" required minlength="6">
                     </div>
                     <div class="mb-3">
                         <label for="password2" class="form-label">Confirmer mot de passe</label>
-                        <input type="password" class="form-control" id="password2">
+                        <input type="password" class="form-control" id="password2" required minlength="6">
                     </div>
-                    <button type="submit" class="btn btn-primary">Créer</button>
+                    <button type="submit" class="btn btn-primary w-100">Créer</button>
                 </form>
-                    </div>
-                </div>
             </div>
         </div>
-        
-        <footer>
-            <!-- place footer here -->
-        </footer>
-        
-        <script>
-            function verifyAccount(e) {
-                let nom = document.getElementById("nom").value.trim(); 
-                let prenom = document.getElementById("prenom").value.trim(); 
-                let email = document.getElementById("email").value.trim(); 
-                let pseudo = document.getElementById("pseudo").value.trim(); 
-                let password = document.getElementById("password").value.trim();
-                let password2 = document.getElementById("password2").value.trim();
+    </div>
 
-                // Vérification des champs
-                if (nom !== "" && prenom !== "" && email !== "" && pseudo !== "" && password.length >= 6 && password !== "" && password2 !== "" && password === password2 && email.includes('@')) {
-                    alert("ok");
-                    return true;    
-                } else {
-                    alert('Veuillez remplir tous les champs correctement.');
-                    e.preventDefault();
-                    return false;
-                }
+    <footer>
+        <!-- place footer here -->
+    </footer>
+
+    <script>
+        function verifyAccount(e) {
+            let nom = document.getElementById("nom").value.trim(); 
+            let prenom = document.getElementById("prenom").value.trim(); 
+            let email = document.getElementById("email").value.trim(); 
+            let pseudo = document.getElementById("pseudo").value.trim(); 
+            let password = document.getElementById("password").value.trim();
+            let password2 = document.getElementById("password2").value.trim();
+
+            // Vérification des champs
+            if (nom !== "" && prenom !== "" && email !== "" && pseudo !== "" && password.length >= 6 && password !== "" && password2 !== "" && password === password2 && email.includes('@')) {
+                alert("ok");
+                return true;    
+            } else {
+                alert('Veuillez remplir tous les champs correctement.');
+                e.preventDefault();
+                return false;
             }
+        }
+    </script>
 
-
-            // let divs = document.getElementsByClassName("col");
-            // let etudiants = ['mj','to','sg','chun'];
-            // for (let i = 0; i <= divs.length; i++) {
-            //     divs[i].innerHTML = etudiants[i];
-            // }
-        </script>
-
-        <!-- Bootstrap JavaScript Libraries -->
-        <script
-            src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
-            integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
-            crossorigin="anonymous"
-        ></script>
-
-        <script
-            src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
-            integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
-            crossorigin="anonymous"
-        ></script>
-    </body>
+    <!-- Bootstrap JavaScript Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
+</body>
 </html>
