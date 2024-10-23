@@ -1,6 +1,9 @@
 @echo off
 setlocal
 
+:: Demander un message de commit personnalisé
+set /p commitMessage="Entrez votre message de commit : "
+
 :: Ajouter tous les fichiers
 git add *
 if errorlevel 1 (
@@ -8,8 +11,8 @@ if errorlevel 1 (
     exit /b 1
 )
 
-:: Commit avec un message
-git commit -m "emjy"
+:: Commit avec le message personnalisé
+git commit -m "%commitMessage%"
 if errorlevel 1 (
     echo Erreur lors du commit.
     exit /b 1
