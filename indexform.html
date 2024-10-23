@@ -25,34 +25,45 @@
         
         <div class="container">
             <div class="container mt-5">
-                <h2 class="text-center">Création de compte</h2>
-                <form onsubmit="verifyAccount()">
+                <div class="row">
+                    <div class="col">
+                        <img src="img.png" style="
+                        margin-top: 25%;
+                        margin-left: 0%;
+                        width: 70%;
+                    "/>
+                    </div>
+                    <div class="col" style="background-color: #009de0; border-radius: 5%;">
+                        <h2 class="text-center">Création de compte</h2>
+                <form onsubmit="verifyAccount()" action=".php" method=POST>
                     <div class="mb-3">
                         <label for="nom" class="form-label">Nom</label>
-                        <input type="text" class="form-control" id="nom" required>
+                        <input type="text" class="form-control" id="nom">
                     </div>
                     <div class="mb-3">
                         <label for="prenom" class="form-label">Prénom</label>
-                        <input type="text" class="form-control" id="prenom" required>
+                        <input type="text" class="form-control" id="prenom">
                     </div>
                     <div class="mb-3">
                         <label for="email" class="form-label">Adresse e-mail</label>
-                        <input type="email" class="form-control" id="email" required>
+                        <input type="email" class="form-control" id="email">
                     </div>
                     <div class="mb-3">
                         <label for="pseudo" class="form-label">Pseudo</label>
-                        <input type="text" class="form-control" id="pseudo" required>
+                        <input type="text" class="form-control" id="pseudo">
                     </div>
                     <div class="mb-3">
                         <label for="password" class="form-label">Mot de passe</label>
-                        <input type="password" class="form-control" id="password" required>
+                        <input type="password" class="form-control" id="password">
                     </div>
                     <div class="mb-3">
                         <label for="password2" class="form-label">Confirmer mot de passe</label>
-                        <input type="password" class="form-control" id="password2" required>
+                        <input type="password" class="form-control" id="password2">
                     </div>
                     <button type="submit" class="btn btn-primary">Créer</button>
                 </form>
+                    </div>
+                </div>
             </div>
         </div>
         
@@ -62,16 +73,25 @@
         
         <script>
             function verifyAccount() {
-                let password = document.getElementById("password").value; // .value pour récupérer la valeur
-                let password2 = document.getElementById("password2").value; // .value pour récupérer la valeur
-                if (password === password2) {
-                    alert('ok');
-                    return true; // Permet de soumettre le formulaire
+                let nom = document.getElementById("nom").value.trim(); 
+                let prenom = document.getElementById("prenom").value.trim(); 
+                let email = document.getElementById("email").value.trim(); 
+                let pseudo = document.getElementById("pseudo").value.trim(); 
+                let password = document.getElementById("password").value.trim();
+                let password2 = document.getElementById("password2").value.trim();
+
+                // Vérification des champs
+                if (nom !== "" && prenom !== "" && email !== "" && pseudo !== "" && password.length >= 6 && password !== "" && password2 !== "" && password === password2 && email.includes('@')) {
+                    alert("ok");
+                    return true; // Permet la soumission du formulaire
                 } else {
-                    alert('Les mots de passe ne correspondent pas.');
-                    return false; // Empêche la soumission du formulaire
+                    alert('Veuillez remplir tous les champs correctement.');
+                    event.preventDefault();
+                    return false;
                 }
             }
+
+
             // let divs = document.getElementsByClassName("col");
             // let etudiants = ['mj','to','sg','chun'];
             // for (let i = 0; i <= divs.length; i++) {
