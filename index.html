@@ -6,12 +6,12 @@
     <title>Javascript Exo 1</title>
 </head>
 <body>
-    <input type="text" id="newText" name="name" />
-    <button id="Text" onclick="modifyText()">Modifier</button>
+    <input type="text" id="newText" name="name" oninput="modifyText()" />
+    <button id="Text">Modifier</button>
 
     <script>
         function modifyText() {
-            document.getElementById('Text').innerHTML =  document.getElementById('newText').value;
+                document.getElementById('Text').innerHTML =  document.getElementById('newText').value;
         }
     </script>
 </body>
