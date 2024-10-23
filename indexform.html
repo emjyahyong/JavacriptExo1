@@ -33,9 +33,9 @@
                         width: 70%;
                     "/>
                     </div>
-                    <div class="col" style="background-color: #009de0; border-radius: 5%;">
+                    <div class="col">
                         <h2 class="text-center">Création de compte</h2>
-                <form onsubmit="verifyAccount()" action=".php" method=POST>
+                <form onsubmit="verifyAccount(event)" action=".php" method=POST >
                     <div class="mb-3">
                         <label for="nom" class="form-label">Nom</label>
                         <input type="text" class="form-control" id="nom">
@@ -72,7 +72,7 @@
         </footer>
         
         <script>
-            function verifyAccount() {
+            function verifyAccount(e) {
                 let nom = document.getElementById("nom").value.trim(); 
                 let prenom = document.getElementById("prenom").value.trim(); 
                 let email = document.getElementById("email").value.trim(); 
@@ -83,10 +83,10 @@
                 // Vérification des champs
                 if (nom !== "" && prenom !== "" && email !== "" && pseudo !== "" && password.length >= 6 && password !== "" && password2 !== "" && password === password2 && email.includes('@')) {
                     alert("ok");
-                    return true; // Permet la soumission du formulaire
+                    return true;    
                 } else {
                     alert('Veuillez remplir tous les champs correctement.');
-                    event.preventDefault();
+                    e.preventDefault();
                     return false;
                 }
             }
